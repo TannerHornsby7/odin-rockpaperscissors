@@ -44,8 +44,11 @@ function game () {
     let c_wins = 0;
     let winner = "Everybody :)"
     while(game_count < 5) {
+        let computerSelection = getComputerChoice();
+        let playerSelection = prompt("Enter Rock, Paper, or Scissors!");
         let round = gameLogic(playerSelection, computerSelection);
         console.log(round);
+        alert(round);
 
         if (round == "You Lose :(") {
             c_wins++;
@@ -62,11 +65,9 @@ function game () {
     if(p_wins < c_wins) {
         winner = "Computer >:)";
     }
-    return "The winner is: " + winner + " by " + (game_count - p_wins);
+    return alert("The winner is: " + winner);
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
 console.log(game());
 /*function gameRound (playerSelection) {
 
