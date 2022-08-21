@@ -68,7 +68,14 @@ function game () {
     return alert("The winner is: " + winner);
 }
 
-console.log(game());
-/*function gameRound (playerSelection) {
+const buttons = document.querySelectorAll('button');
 
+buttons.forEach(button => {
+    button.addEventListener('click', e => console.log(gameLogic(e.target.classList.value, getComputerChoice())));
+});
+
+const display = document.querySelector('div.results');
+const resultimg = document.createElement('img');
+const resultmsg = document.createElement('h2');
+/*function gameRound (playerSelection) {
 }*/
