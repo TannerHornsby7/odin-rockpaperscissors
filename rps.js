@@ -5,6 +5,11 @@ function getComputerChoice () {
     return choices[Math.floor(Math.random() * 3)];
 }
 
+const display = document.querySelector('div.display');
+const resultimg = document.createElement('img');
+const resultmsg = document.createElement('h2');
+
+
 function standardize (string) {
     return string[0].toUpperCase() + string.substring(1).toLowerCase();
 }
@@ -15,10 +20,6 @@ function gameLogic (playerSelection, computerSelection) {
     computerSelection = standardize(computerSelection);
 
     let win = false;
-    //tie case
-    if(playerSelection == computerSelection) {
-        return "It's a tie!"
-    }
 
     //win cases
     if(playerSelection == "Rock" && computerSelection == "Scissors") {
@@ -32,10 +33,20 @@ function gameLogic (playerSelection, computerSelection) {
     }
 
     if (win) {
-        return "You Win!!!"
+        resultimg.src = "assets/player.jpg";
+        resultmsg.textContent = "You Win!!!";
+    }else if(playerSelection == computerSelection) {
+        resultimg.src = "assets/tie.jpg";
+        resultmsg.textContent = "It's A Tie";
+    } else {
+        resultimg.src = "assets/computer.png";
+        resultmsg.textContent = "You Lose :(";
     }
-
-    return "You Lose :("
+    while (display.firstChild) {
+        display.removeChild(display.firstChild);
+    }
+    display.appendChild(resultimg);
+    display.appendChild(resultmsg);
 }
 
 function game () {
@@ -74,8 +85,5 @@ buttons.forEach(button => {
     button.addEventListener('click', e => console.log(gameLogic(e.target.classList.value, getComputerChoice())));
 });
 
-const display = document.querySelector('div.results');
-const resultimg = document.createElement('img');
-const resultmsg = document.createElement('h2');
 /*function gameRound (playerSelection) {
 }*/

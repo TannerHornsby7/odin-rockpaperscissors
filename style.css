@@ -6,6 +6,7 @@ body {
     justify-content: space-around;
     align-items: center;
     gap: 50px;
+    padding: 15px;
 }
 
 button {
@@ -29,4 +30,10 @@ button {
     gap: 50px;
     font-family: 'Courier New', Courier, monospace;
     font-size: x-large;
+    padding: 15px;
+}
+
+img {
+    height: 300px;
+    width: 500px;
 }
