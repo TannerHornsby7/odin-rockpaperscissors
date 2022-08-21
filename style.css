@@ -37,3 +37,10 @@ img {
     height: 300px;
     width: 500px;
 }
+
+.score {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+}
